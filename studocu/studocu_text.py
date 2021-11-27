@@ -13,7 +13,7 @@ def path():
     global chrome
     # Starts new chrome session
     chrome = webdriver.Chrome(
-        '.\\92_chromedriver_win32\\chromedriver.exe')  # Add path if required
+        '..\\92_chromedriver_win32\\chromedriver.exe')  # Add path if required
 
 
 def ScrapeText():
