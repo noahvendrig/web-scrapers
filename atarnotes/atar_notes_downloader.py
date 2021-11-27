@@ -133,7 +133,7 @@ def main(url):
     # chrome.close()
     print("closed")
 
-url = "https://atarnotes.com/notes/?pag=1&state=3719&subject=4862&unit=0&key=&sort=download"
+url = "https://atarnotes.com/notes/?pag=1&state=3719&subject=4974&unit=0&key=&sort=download"
 # url = "https://www.nelsonnet.com.au/login"
 
 main(url)
