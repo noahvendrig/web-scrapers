@@ -17,38 +17,44 @@ def path():
     global chrome
     # Starts new chrome session
     chrome = webdriver.Chrome(
-        '.\\95_chromedriver_win32\\chromedriver.exe')  # Add path if required
+        '.\\92_chromedriver_win32\\chromedriver.exe')  # Add path if required
 
 
 def ScrapeText():
-    container = chrome.find_element_by_class_name(
-        'c')
+    # container = chrome.find_element(By.CLASS_NAME, 'c')
+    # container = chrome.find_elements_by_css_selector(".c")
+    # print(container)
+
+
     # name = container.find_element_by_xpath('.//div[@class="t"]')
     # print(name.text)
-    # persons = []
-    # for person in chrome.find_elements_by_class_name('person'):
-    #     title = person.find_element_by_xpath('.//div[@class="title"]/a').text
-    #     company = person.find_element_by_xpath(
-    #         './/div[@class="company"]/a').text
-
-    #     persons.append({'title': title, 'company': company})
+    # text = chrome.find_element_by_tag("body").text
+    # print(text)
+    # text= (chrome.find_element(By.ID, 'page-container')).text
+    # text = (chrome.find_element(By.ID, 'document-wrapper'))
+    text = chrome.find_element_by_xpath("/html/body")
+    text = text.text
+    path = './res.txt'
+    with open(path, 'a', encoding="utf-8") as results:
+        results.write(text)
+        results.close()
 
 
 def url_name(url):
     chrome.get(url)
     # Adjust sleep
-    time.sleep(3)
+    # time.sleep(3)
 
 
 def main(url):
     path()
-    time.sleep(1)
+    # time.sleep(1)
     url_name(url)
 
-    time.sleep(1)
+    time.sleep(10)
     ScrapeText()
 
-    chrome.close()
+    # chrome.close()
     print("closed")
 
 
