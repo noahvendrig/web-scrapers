@@ -3,14 +3,10 @@ from selenium.webdriver.common.keys import Keys
 import selenium.common.exceptions
 import time
 
-import re
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-import os
-import random
-import string
 
 
 def path():
@@ -25,7 +21,7 @@ def url_name(url):
     time.sleep(0.5)
 
 
-def login(username, password):
+def login(username, password): #TODO FIX LOGIN
     # time.sleep(0.5)
     open_login_parent = chrome.find_elements_by_class_name("user-portal")[0]
     open_login_btn =open_login_parent.find_elements_by_xpath(".//*")[0]
@@ -33,6 +29,7 @@ def login(username, password):
 
 
     time.sleep(10)
+    
     # frm_login_parent = chrome.find_element_by_css_selector("#frmLogin")
     # usern = frm_login_parent.find_element_by_xpath("//input[@cname='user']")[0]
     # usern = chrome.find_element(By.NAME, "user")
@@ -52,7 +49,7 @@ def login(username, password):
     # time.sleep(3)
     
 
-def download(dir_name, url):
+def download(url):
     # os.mkdir(f'./{dir_name}')
     # os.mkdir(f'./{dir_name}/raw')
     # os.mkdir(f'./{dir_name}/cropped')
@@ -119,14 +116,13 @@ def download(dir_name, url):
 
 
 def main(url):
-    dir_name = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
     username = 'NoahV11'
     password  = 'n6Zea.kx.!GeN9G'
     path()
     # time.sleep(1)
     url_name(url)
     login(username, password)
-    download(dir_name, url)
+    download(url)
     # crop_images(dir_name)
     # make_pdf(dir_name)
     time.sleep(5)
