@@ -12,8 +12,7 @@ from selenium.webdriver.common.by import By
 def path():
     global chrome
     # Starts new chrome session
-    chrome = webdriver.Chrome(
-        '..\\92_chromedriver_win32\\chromedriver.exe')  # Add path if required
+    chrome = webdriver.Chrome('./92_chromedriver_win32/chromedriver.exe')  # Add path if required
 
 
 def ScrapeText():
@@ -28,7 +27,9 @@ def ScrapeText():
     # print(text)
     # text= (chrome.find_element(By.ID, 'page-container')).text
     # text = (chrome.find_element(By.ID, 'document-wrapper'))
-    text = chrome.find_element_by_xpath("/html/body")
+
+    text = chrome.find_element(By.XPATH, "/html/body")
+    # text = chrome.find_element(By.ID, 'page-container')
     text = text.text
     path = './res.txt'
     with open(path, 'a', encoding="utf-8") as results:
@@ -40,6 +41,16 @@ def url_name(url):
     chrome.get(url)
     # Adjust sleep
     # time.sleep(3)
+
+
+
+
+
+
+
+
+
+
 
 
 def main(url):
