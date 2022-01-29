@@ -1,7 +1,5 @@
 # Collection of Webscrapers
 
-Foobar is a Python library for dealing with word pluralization.
-
 ## Studocu
 
 - copy the text of the resources
